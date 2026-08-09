@@ -1,0 +1,1 @@
+This project is about an RPG easy game in python's shell
