@@ -1,78 +1,6 @@
-
-class Player:
-    def __init__(self, name):
-        self.name = name
-        
-    def stadistics(self, health, attack):
-        self.health = health
-        self.attack = attack
-
-    def stats(self):
-        return f"{self.rol} stats are: {self.health} HP and {self.attack_power} of damage"  
-
-# Tank has more health but less attack power
-class Tank(Player):
-    def __init__(self, name):
-        super().__init__(name)
-        self.health = 300
-        self.attack_power = 20
-        self.rol = "Tank"
-        
-    
-# Explorer receives less health
-class Explorer(Player):
-    def __init__(self, name):
-        super().__init__(name)
-        self.health = 150
-        self.attack_power = 30
-        self.rol = "Explorer"
-        
-# Soldier receives the same damage but makes more damage
-class Soldier(Player):
-    def __init__(self, name):
-        super().__init__(name)
-        self.health = 200
-        self.attack_power = 50        
-        self.rol = "Soldier"
- 
-        
-class Enemy:
-    def __init__(self, name):
-        self.name = name
-        
-    def stadistics(self, health, attack):
-        self.health = health
-        self.attack = attack
-
-    def stats(self):
-        return f"You'll fight {self.rol} which stats are: {self.health} HP and {self.attack_power} of damage"  
-        
-# Demon it's the default soldier for enemies
-class Demon(Enemy):
-    def __init__(self, name):
-        super().__init__(name)
-        self.health = 200
-        self.attack_power = 50
-        self.rol = "Demon"
-        
-# Beast works as a tank but for enemies
-class Beast(Enemy):
-    def __init__(self, name):
-        super().__init__(name)
-        self.health = 300
-        self.attack_power = 15
-        self.rol = "Beast"
-    
-# Witch is like the explorer but for enemies
-class Witch(Enemy):
-    def __init__(self, name):
-        super().__init__(name)
-        self.health = 150
-        self.attack_power = 30
-        self.rol = "Witch"
-      
 # Here starts the UX from the user (all of it will work from an import)
 
+from entities import *
 import random
 
 # When the code starts, all of these will start
@@ -123,14 +51,14 @@ while True:
     
     if enemy == "demon":
         nameenemy = "Demon"
-        enemigo = Demon(nameenemy)
-        print(enemigo.stats())
+        enemy = Demon(nameenemy)
+        print(enemy.stats())
         print("The enemy will be a Demon")
         break
     elif enemy == "beast":
         nameenemy = "Beast"
-        enemigo = Beast(nameenemy)
-        print(enemigo.stats())
+        enemy = Beast(nameenemy)
+        print(enemy.stats())
         print("The enemy will be a Beast")
         break
     elif enemy == "witch":
